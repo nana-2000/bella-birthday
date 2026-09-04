@@ -1,0 +1,539 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Happy Birthday Bella ❤️</title>
+
+<style>
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    min-height: 100vh;
+    overflow: hidden;
+    font-family: Georgia, "Times New Roman", serif;
+
+    background:
+        radial-gradient(circle at center, #9b1748 0%, #4b0a25 45%, #14020b 100%);
+
+    color: white;
+}
+
+/* INTRO SCREEN */
+#intro {
+    position: fixed;
+    inset: 0;
+    z-index: 100;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    background:
+        linear-gradient(135deg, #18030e, #700d35, #18030e);
+
+    transition: opacity 1s ease, visibility 1s ease;
+}
+
+#intro.hide {
+    opacity: 0;
+    visibility: hidden;
+}
+
+.open-box {
+    text-align: center;
+    padding: 45px 30px;
+    width: 90%;
+    max-width: 420px;
+
+    border-radius: 30px;
+
+    background: rgba(255,255,255,0.10);
+    border: 1px solid rgba(255,255,255,0.25);
+
+    backdrop-filter: blur(15px);
+
+    box-shadow:
+        0 0 50px rgba(255, 70, 140, 0.25);
+
+    cursor: pointer;
+
+    animation: pulse 2s infinite;
+}
+
+.open-heart {
+    font-size: 75px;
+    animation: heartbeat 1.2s infinite;
+}
+
+.open-box h2 {
+    color: #ffd4e4;
+    font-size: 30px;
+    margin: 15px 0 8px;
+}
+
+.open-box p {
+    color: #ffeaf2;
+    font-size: 17px;
+}
+
+/* MAIN CARD */
+.card {
+    position: relative;
+    z-index: 5;
+
+    width: 90%;
+    max-width: 700px;
+
+    max-height: 90vh;
+    overflow-y: auto;
+
+    margin: auto;
+
+    top: 50%;
+    transform: translateY(-50%);
+
+    padding: 40px 30px;
+
+    text-align: center;
+
+    border-radius: 30px;
+
+    background: rgba(255,255,255,0.10);
+
+    border: 1px solid rgba(255,255,255,0.25);
+
+    backdrop-filter: blur(15px);
+
+    box-shadow:
+        0 25px 80px rgba(0,0,0,0.5);
+
+    animation: cardAppear 1.5s ease;
+}
+
+.crown {
+    font-size: 40px;
+}
+
+h1 {
+    margin: 5px 0;
+
+    font-size: clamp(38px, 9vw, 65px);
+
+    color: #ffd1e3;
+
+    text-shadow:
+        0 0 8px #ff79aa,
+        0 0 25px rgba(255,70,140,0.8);
+}
+
+.subtitle {
+    color: #ffe8f0;
+    font-size: 19px;
+}
+
+.divider {
+    width: 90px;
+    height: 2px;
+
+    margin: 25px auto;
+
+    background: #ffc1d8;
+}
+
+.message {
+    font-size: 19px;
+    line-height: 1.8;
+
+    color: #fff8fb;
+}
+
+.message strong {
+    color: #ffd0e1;
+}
+
+.final {
+    margin-top: 25px;
+
+    font-size: 25px;
+    font-weight: bold;
+
+    color: #ffd0e2;
+
+    text-shadow:
+        0 0 10px rgba(255,100,160,0.6);
+}
+
+.signature {
+    margin-top: 8px;
+
+    font-size: 17px;
+
+    color: #ffe7ef;
+}
+
+
+/* FLOATING LOVE EMOJIS */
+.floating-love {
+    position: fixed;
+
+    bottom: -70px;
+
+    z-index: 2;
+
+    pointer-events: none;
+
+    font-size: 30px;
+
+    opacity: 0;
+
+    animation: floatUp linear forwards;
+
+    filter:
+        drop-shadow(0 0 6px rgba(255,150,190,0.7));
+}
+
+
+/* FLOATING ANIMATION */
+@keyframes floatUp {
+
+    0% {
+        transform:
+            translateY(0)
+            rotate(0deg)
+            scale(0.7);
+
+        opacity: 0;
+    }
+
+    15% {
+        opacity: 0.9;
+    }
+
+    100% {
+        transform:
+            translateY(-115vh)
+            rotate(30deg)
+            scale(1.3);
+
+        opacity: 0;
+    }
+}
+
+
+/* HEARTBEAT */
+@keyframes heartbeat {
+
+    0%, 100% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.25);
+    }
+}
+
+
+/* INTRO PULSE */
+@keyframes pulse {
+
+    0%, 100% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.03);
+    }
+}
+
+
+/* CARD APPEAR */
+@keyframes cardAppear {
+
+    from {
+        opacity: 0;
+        transform: translateY(-45%) scale(0.85);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(-50%) scale(1);
+    }
+}
+
+
+/* SMALL SPARKLES */
+.sparkle {
+    position: fixed;
+
+    z-index: 1;
+
+    color: #ffdbea;
+
+    font-size: 14px;
+
+    animation: sparkleAnimation 2s infinite alternate;
+}
+
+@keyframes sparkleAnimation {
+
+    from {
+        opacity: 0.2;
+        transform: scale(0.6);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1.4);
+    }
+}
+</style>
+</head>
+
+
+<body>
+
+
+<!-- OPENING SCREEN -->
+
+<div id="intro">
+
+    <div class="open-box" onclick="openBirthday()">
+
+        <div class="open-heart">
+            ❤️
+        </div>
+
+        <h2>
+            A Little Surprise For Bella 💕
+        </h2>
+
+        <p>
+            Tap here to open your birthday message 💋
+        </p>
+
+    </div>
+
+</div>
+
+
+
+<!-- BIRTHDAY CARD -->
+
+<div class="card">
+
+    <div class="crown">
+        👑
+    </div>
+
+
+    <h1>
+        Happy Birthday, Bella ❤️
+    </h1>
+
+
+    <p class="subtitle">
+        To my love, my beautiful girl 🎂🥰
+    </p>
+
+
+    <div class="divider"></div>
+
+
+    <div class="message">
+
+        <p>
+            If I could give you one thing today,
+            it would be the ability to see yourself
+            through my eyes—so you'd know just how
+            incredibly <strong>special and beautiful</strong>
+            you are to me. 🥹❤️
+        </p>
+
+
+        <p>
+            You have my heart in a way no one else
+            ever could. Every moment with you is a
+            memory I treasure, and I'm grateful that
+            I get to call you mine. 😘💕
+        </p>
+
+
+        <p>
+            May this new year of your life bring you
+            everything your heart desires. I'll always
+            be here <strong>loving you, choosing you,
+            and making you feel as special as you
+            truly are.</strong> ❤️
+        </p>
+
+    </div>
+
+
+    <div class="divider"></div>
+
+
+    <div class="final">
+        Happy Birthday, my Bella. ❤️
+    </div>
+
+
+    <div class="signature">
+        I love you more than words can say. 💋🎂❤️
+    </div>
+
+</div>
+
+
+
+<script>
+
+/* LOVE EMOJIS */
+
+const loveEmojis = [
+
+    "❤️",
+    "💕",
+    "💗",
+    "💖",
+    "💘",
+    "💝",
+    "💞",
+    "💓",
+    "🥰",
+    "💋",
+    "🌹",
+    "✨"
+
+];
+
+
+/* CREATE FLOATING HEART */
+
+function createLove() {
+
+    const heart = document.createElement("div");
+
+    heart.classList.add("floating-love");
+
+    heart.innerHTML =
+        loveEmojis[
+            Math.floor(
+                Math.random() * loveEmojis.length
+            )
+        ];
+
+
+    /* Random horizontal position */
+
+    heart.style.left =
+        Math.random() * 100 + "vw";
+
+
+    /* Random size */
+
+    heart.style.fontSize =
+        (18 + Math.random() * 30) + "px";
+
+
+    /* Random animation speed */
+
+    heart.style.animationDuration =
+        (5 + Math.random() * 6) + "s";
+
+
+    document.body.appendChild(heart);
+
+
+    /* Remove after animation */
+
+    setTimeout(function() {
+
+        heart.remove();
+
+    }, 12000);
+
+}
+
+
+
+/* CREATE SPARKLES */
+
+function createSparkle() {
+
+    const sparkle =
+        document.createElement("div");
+
+    sparkle.classList.add("sparkle");
+
+    sparkle.innerHTML = "✦";
+
+
+    sparkle.style.left =
+        Math.random() * 100 + "vw";
+
+
+    sparkle.style.top =
+        Math.random() * 100 + "vh";
+
+
+    document.body.appendChild(sparkle);
+
+
+    setTimeout(function() {
+
+        sparkle.remove();
+
+    }, 4000);
+
+}
+
+
+
+/* OPEN BIRTHDAY CARD */
+
+function openBirthday() {
+
+    document
+        .getElementById("intro")
+        .classList.add("hide");
+
+
+    /* Burst of hearts */
+
+    for (let i = 0; i < 20; i++) {
+
+        setTimeout(
+            createLove,
+            i * 100
+        );
+
+    }
+
+}
+
+
+
+/* CONTINUOUS FLOATING LOVE */
+
+setInterval(
+    createLove,
+    600
+);
+
+
+/* CONTINUOUS SPARKLES */
+
+setInterval(
+    createSparkle,
+    700
+);
+
+</script>
+
+
+</body>
+</html>
